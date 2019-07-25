@@ -1,0 +1,3461 @@
+@import "normalize"
+    
+.blur
+    transition 0.6s
+    filter blur(10px)
+header
+    background white
+    width 100%
+    position fixed
+    top 0
+    left 0
+    z-index 1000
+    border-bottom 1px solid rgba(214,214,214,0)
+    transition 0.6s
+    &.bordered
+        border-bottom 1px solid rgba(214,214,214,0.5)
+    &::after
+        content ''
+        position absolute
+        width 100%
+        height 100%
+        top -126px
+        transition 1s
+        transition-delay 0.4s
+        left 0
+        background #f3f9fa
+    &.header-down-after
+        &::after
+            top 0
+    &.header-down
+        .logo
+            margin-top 20px
+            margin-bottom 20px
+        .languages
+            margin-top 30px
+        .search
+            margin-top 28px
+            margin-bottom 28px
+        nav
+            margin-top 34px
+            height 46px
+        .search-head-section
+            top 21px
+    &.header-scroll-down
+        top -126px
+        .header-inside
+            transform translateY(-50px)
+    .header-inside
+        transition 1s
+        transition-delay 0.4s
+        position relative
+        z-index 10
+    nav
+        margin 54px 0 0
+        transition 0.6s
+        +mq(1200px)
+            display none
+        a
+            margin 0 12px
+            color blue
+            position relative
+            span
+                z-index 1
+                position relative
+            &::after
+                content ''
+                position absolute
+                height 10px
+                bottom 0
+                right 5px
+                z-index 0
+                transition 0.6s 
+                // cubic-bezier(.22, .61, .36, 1)
+                width 0
+                background #f1c40f
+        li
+            &.active,
+            &:hover
+                a:after
+                    opacity 1
+                    width 100%
+                    right auto
+                    left -5px
+
+
+.search-head-section
+    transition 0.8s 
+.search
+    width 30px
+    height 30px
+    border none
+    background transparent url(../img/search.svg) no-repeat center center
+    background-size 65%
+    margin 48px 70px
+    transition 0.8s
+    +mq(1200px)
+        display none
+    +mq(1310px)
+        margin-left 30px
+        margin-right 30px
+.languages
+    text-transform uppercase
+    margin 50px 40px 0 0
+    transition 0.6s
+    +mq(1200px)
+        display none
+    li
+        a
+            color #111e6c
+            font-size 14px
+            padding 5px 10px
+            margin 0 8px
+            transition 0.6s
+            position relative
+            &::after
+                content ''
+                position absolute
+                right -9px
+                width 2px
+                height 14px
+                top 50%
+                background #111e6c
+                transform translateY(-50%)
+        &:last-child
+            a::after
+                display none  
+        &.active,
+        &:hover
+            a
+                background #111e6c
+                color white
+                
+.logo
+    display block
+    margin 40px 0 35px 60px
+    transition 0.6s
+    +mq(600px)
+        margin 35px 0 30px 20px
+    img
+       width 120px 
+.header-height
+    padding-top 126px
+    +mq(600px)
+        padding-top 106px
+.index-review
+    padding-left 120px
+    position relative
+    +mq(992px)
+        padding-left 0
+    +mq(600px)
+        display none
+    .image
+        image(calc(100vh - 240px))
+        +mq(600px)
+            padding-top calc(100vh - 200px)
+    .navigation
+        margin-left 120px
+        position absolute
+        top 50%
+        transform translateY(-50%)
+        +mq(992px)
+            margin-left 50px
+        +mq(600px)
+            margin-left 20px
+        a
+            display block
+            padding 10px 65px 8px
+            font-size 16px
+            color white
+            width 300px
+            position relative
+            +mq(600px)
+                padding 10px 5px 8px 30px  
+                font-size 16px   
+                width auto 
+            &::after
+                content ''
+                position absolute
+                width 0px
+                height 100%
+                background blue
+                left 0
+                top 50%
+                transform translateY(-50%)
+                transition 1s
+            &::before
+                content ''
+                position absolute
+                width 0
+                height calc(100% - 10px)
+                background orange
+                z-index 1
+                left 5px
+                top 50%
+                transition 1s cubic-bezier(.01,.53,.55,.99)
+                transition-delay 0.4s
+                transform translateY(-50%)
+            span
+                z-index 1
+                transition 0.9s
+                position: relative;
+                color: white;
+                background: none!important;
+                &::before {
+                    content: attr(data-text);
+                    display: block;
+                    position: absolute;
+                    top: -4px;
+                    left: 0;
+                    color: blue;
+                    height: 100%;
+                    width: 0%;
+                    z-index: 2;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    -webkit-transition: 1s;
+                    transition: 1s;
+                    // transition-delay 1s
+                }
+            .arrow
+                width 12px
+                height 20px
+                position absolute
+                right -25px
+                top 11px
+                z-index 10
+                +mq(600px)
+                    top 11px
+                &::before
+                    content ''
+                    position absolute
+                    width 0
+                    height 2px
+                    background white
+                    top 5px
+                    transition 0.5s
+                    transform rotate(45deg)
+                &::after
+                    content ''
+                    position absolute
+                    width 0
+                    top 12px
+                    height 2px
+                    transform rotate(-45deg)
+                    background white
+                    transition 0.5s
+            &:hover
+                span
+                    color inherit
+                    text-shadow none
+                    &::before
+                        width 100%
+                &::after
+                    width 100%
+                    height 100%
+                    // animation indexReview 1s cubic-bezier(.01,.53,.55,.99) 0.5s forwards
+                &::before
+                    width calc(100% + 30px)
+                .arrow
+                    &::before,
+                    &::after
+                        content ''
+                        width 10px
+                        background blue
+                        transition-delay 1s
+
+.left-res
+    height calc(100vh - 240px)
+    background-size 200%
+    background-position 0 center
+    position absolute
+    width 50%
+    overflow hidden
+    float left
+    height 100%
+    top -100%
+    transition 1.3s
+    +mq(992px)
+        width 100%
+    .image
+        width calc(100vw - 120px)
+        image(calc(100vh - 240px))
+        +mq(992px)
+            width 100%
+    &.active
+        top 0
+.right-res
+    height calc(100vh - 240px)
+    background-size 200%
+    background-position 50% center
+    position absolute
+    width 50%
+    float left
+    height 100%
+    bottom -100%
+    left 50%
+    transition 1.3s
+    overflow hidden
+    +mq(992px)
+        display none
+    .image
+        image(calc(100vh - 240px))
+        width calc(100vw - 120px)
+        margin-left -100%
+    &.active
+        bottom 0
+.review-res
+    position absolute
+    top 0
+    overflow hidden
+    left 0
+    width 100%
+    height 100%
+.review-toggles
+    position absolute
+    width 120px
+    height calc(100vh - 240px)
+    left 0
+    top 0
+    display flex 
+    align-items center 
+    justify-content center
+    // background red
+    +mq(992px)
+        display none
+    >div
+        position absolute
+.each-toggle
+    width 8px
+    height 8px
+    margin 8px 0
+    display block
+    border-radius 50%
+    transition 0.3s
+    position relative
+    &::after
+        content ''
+        position absolute
+        width 0
+        height 0
+        left 50%
+        top 50%
+        transform translate(-50%, -50%)
+        transition 0.5s
+        border-radius 50%
+    span
+        position relative
+        z-index 1
+        width 8px
+        height 8px
+        background blue
+        display block
+        border-radius 50%
+        transition 0.5s
+    &:hover
+        span
+            background orange
+        &::after
+            width 16px
+            height 16px
+            background rgba(blue, 0.5)
+.backdrop
+    background blue
+    padding 5px 30px!important
+
+.index-lines
+    width 100%
+    height 100%
+    position absolute
+    top 0
+    left 0
+    span
+        display block
+        position absolute
+        background rgba(white, 0.7)
+        z-index 1
+        &:first-child
+            height 1px
+            right 20px
+            top 20px
+            // width calc(100% - 60px)
+            width 0
+            animation enterWidth 2s forwards 5s
+        &:nth-child(2)
+            // height calc(100% - 60px)
+            height 0
+            left 20px
+            top 20px
+            width 1px
+            animation enterHeight 2s forwards 5s
+        &:nth-child(3)
+            height 1px
+            left 20px
+            bottom 20px
+            // width calc(100% - 60px)
+            width 0
+            animation enterWidth 2s forwards 5s
+        &:nth-child(4)
+            // height calc(100% - 60px)
+            height 0
+            right 20px
+            bottom 20px
+            width 1px
+            animation enterHeight 2s forwards 5s
+.bottom-blue
+    background blue
+    width 100%
+    height 30%
+    position absolute
+    bottom -2px
+    z-index -1
+    left 0
+.scroll-down
+    height 114px
+    background blue
+    width 100%
+    margin-bottom -1px
+    display flex 
+    align-items center
+    justify-content center
+    a
+        display block
+        // width 200px
+        text-transform uppercase
+        color rgba(white, 0.7)
+        letter-spacing 1px
+        img
+            width 25px
+            margin-bottom 5px
+            animation scroll 1.5s infinite
+    div 
+        +mq(600px)
+            height 26px
+.main-projects
+    background blue
+    padding-bottom 50px
+.main-projects-inside
+    width calc(100% - 240px)
+    max-width none
+    margin 0 120px
+    +mq(1200px)
+        margin 0 auto
+        width calc(100% - 40px)
+.container
+    width calc(100% - 200px)
+    max-width none
+    margin 0 100px
+    +mq(992px)
+        width calc(100% - 60px)
+        margin 0 30px
+    
+
+.main-title
+    font-size 32px
+    padding-top 60px
+    color blue
+    +mq(1300px)
+        font-size 24px
+    &.text-white
+        color white
+
+.each-project
+    width 20%
+    float left
+    display block
+    cursor pointer
+    margin-top 20px
+    +mq(992px)
+        width calc(100% / 3)
+    +mq(600px)
+        width 20%
+    >div
+        padding 20px 20px 40px
+        +mq(600px)
+            padding 0
+    .image
+        image(50%)
+        position relative
+        z-index 1
+        background-size 30%
+        +mq(1300px)
+            background-size 40%
+        +mq(500px)
+            background-size 50%
+    .title
+        padding 0 30px
+        color white
+        font-size 16px
+        dots(48px,2)
+        position relative
+        z-index 1
+        display: flex;
+        justify-content: center;
+        +mq(1200px)
+            height 45px
+            font-size 14px
+        +mq(600px)
+            display none
+
+.each-project-lines
+    position absolute
+    width 100%
+    height 100%
+    top 0
+    left 0
+    +mq(600px)
+        display none
+    span
+        display block
+        position absolute
+        background rgba(white, 0.99)
+        z-index 1
+        &:first-child
+            height 1px
+            right 20px
+            top 20px
+            width 0
+            transition 0.9s
+            opacity: 0
+        &:nth-child(2)
+            height 0
+            left 20px
+            top 20px
+            width 1px
+            transition 0.9s
+            opacity: 0
+        &:nth-child(3)
+            height 1px
+            left 20px
+            bottom 20px
+            width 0
+            transition 0.9s
+            opacity: 0
+        &:nth-child(4)
+            height 0
+            right 20px
+            bottom 20px
+            width 1px
+            transition 0.9s
+            opacity: 0
+.each-project
+    position relative
+    transition 0.9s
+    &:hover
+        background lightblue
+        transform translateY(20px);
+        .each-project-lines
+            span:first-child
+                width calc(100% - 40px)
+                opacity 1
+            span:nth-child(2)
+                height calc(100% - 40px)
+                opacity 1
+            span:nth-child(3)
+                width calc(100% - 40px)
+                opacity 1
+            span:nth-child(4)
+                height calc(100% - 40px)
+                opacity 1
+        
+#googleMap
+    width 100%
+    height 600px
+    background rgba(black, 0.3)
+    position relative
+    z-index 1
+    border 20px solid white
+    +mq(600px)
+        height 400px
+        border none
+.map-content
+    position relative
+    padding-top 50px
+    +mq(600px)
+        padding-top 0
+    .container
+        +mq(600px)
+            width 100%
+            margin 0
+            padding 0
+    &::after
+        content ''
+        position absolute
+        width 100%
+        height 150px
+        top -1px
+        left 0
+        background blue
+
+.main-news
+    margin-top 100px
+.news-text
+    position relative
+    z-index 1
+    width 50%
+    margin-left 50%
+    background white
+    padding 70px
+    margin-top -450px
+    height 400px
+    cursor pointer
+    .view-more
+        z-index 1
+        position relative
+    +mq(1200px)
+        width 70%
+        margin-left 30%
+    +mq(600px)
+        margin-left 20px
+        width calc(100% - 40px)
+        padding 70px 20px
+        margin-top 0
+    .title
+        font-size 32px
+        position relative
+        z-index 1
+        color blue
+        font-family bpg_web_caps
+        line-height 1
+        +mq(1300px)
+            font-size 24px
+    .secondary-title
+        font-size 16px
+        margin-top 10px
+        position relative
+        z-index 1
+        display block
+        color black
+        position relative
+    .time
+        margin-top 10px
+        position relative
+        position relative
+        z-index 1
+        &::after
+            content ''
+            position absolute
+            left 0
+            top 10px
+            background rgba(214,214,214,0.7)
+            width 100%
+            left 0
+            height 1px
+        time
+            background-color white
+            padding 0 25px
+            z-index 1
+            position relative
+            &::after
+                content ''
+                position absolute
+                width 16px
+                height 16px
+                left 0
+                top 0
+                background url(../img/calendar.svg) no-repeat center center
+                background-size 100%
+    .text
+        font-family bpg_arial
+        font-size 13px
+        margin-top 10px
+        position relative
+        z-index 1
+        dots(114px,6)
+        *
+            font-family bpg_arial
+        +mq(1300px)
+            dots(154px,8)
+    &:hover
+        .view-more
+            &::after
+                width 100%
+                height 100%
+            &::before
+                width calc(100% + 16px)
+            .arrow
+                &::before,
+                &::after
+                    content ''
+                    width 10px
+                    background blue
+                    transition-delay 1s
+            span
+                color inherit
+                text-shadow none
+                &::before
+                    width 100%
+.news-section 
+    position relative
+    min-height 520px
+    &.left-side
+        .news-text
+            margin-left 0!important
+    .container
+        +mq(768px)
+            width calc(100% - 40px)
+            margin 0 20px
+            padding 0
+        +mq(600px)
+            width 100%
+            margin 0
+            padding 0
+    .image
+        position absolute
+        top 0
+        left 0
+        display block
+        image(520px)
+        width calc(50% + 60px)
+        +mq(1200px)
+            width calc(36% + 60px)
+        +mq(600px)
+            width 100%
+            padding-top 440px
+
+.news-text-lines
+    position absolute
+    width 100%
+    height 100%
+    top 0
+    left 0
+    +mq(600px)
+        display none
+    span
+        display block
+        position absolute
+        background rgba(#d6d6d6, 0.7)
+        z-index 1
+        &:first-child
+            height 1px
+            right 20px
+            top 20px
+            width 0
+            width calc(100% - 60px)
+            animation enterWidth 2s forwards 0.5s
+        &:nth-child(2)
+            height 0
+            height calc(100% - 60px)
+            left 20px
+            top 20px
+            width 1px
+            animation enterHeight 2s forwards 0.5s
+        &:nth-child(3)
+            height 1px
+            left 20px
+            bottom 20px
+            width 0
+            width calc(100% - 60px)
+            animation enterWidth 2s forwards 0.5s
+        &:nth-child(4)
+            height 0
+            height calc(100% - 60px)
+            right 20px
+            bottom 20px
+            width 1px
+            animation enterHeight 2s forwards 0.5s
+.owl-carousel {
+  touch-action: none;
+}
+.partniors-slider
+    padding-right 50px
+    padding-top 50px
+    .image
+        filter grayscale(100%)
+        image(115px)
+        background-size 70%
+        opacity 0.7
+        transition 0.5s
+        display block
+    .item
+        &:hover
+            .image
+                opacity 1
+                filter none
+    .owl-prev,
+    .owl-next
+        border-radius 0!important
+        width 50px
+        height 50px
+        display flex!important
+        position absolute
+        right -76px
+        top 0
+        align-items center
+        justify-content center
+        background white!important
+        transition 0.6s
+        +mq(992px)
+            right -56px
+        &:hover
+            background orange!important
+        img
+            width 16px
+            transition 0.6s
+    .owl-prev
+        top 51px
+    .owl-theme .owl-nav .disabled
+        opacity 1!important   
+        img
+            filter grayscale(100%)!important
+            opacity 0.3!important
+            
+.our-partniors
+    margin-top -32px
+    background grey
+    padding-bottom 45px
+    max-width 100vw
+    overflow-x hidden
+    +mq(1300px)
+        margin-top -28px
+.partniors-title
+    background blue
+    position relative
+    z-index 1
+    display inline-block
+    margin-top 100px
+    color white
+    padding 15px 30px 5px
+    font-size: 32px;
+    font-family: bpg_web_caps;
+    +mq(1300px)
+        font-size 24px
+    +mq(600px)
+        margin-top 0
+        width 100%
+        text-align center
+
+.scroll
+    position fixed
+    top 50%
+    transform translateY(-50%)
+    width 1px
+    right 55px
+    // background white
+    height 100px
+    z-index 100
+    padding-bottom 50px
+    display flex 
+    align-items center
+    justify-content center
+    +mq(992px)
+        display none
+.scroll-percentage
+    color darken(#e4e4e4,10%)
+    margin-top 50px
+    position absolute
+    bottom -20px
+    left 50%
+    transform translateX(-50%) rotate(-90deg)
+.scroll-loader
+    width 1px
+    height 100px
+    margin 0 auto
+    background darken(#e4e4e4,10%)
+    position relative
+    div
+        position absolute
+        bottom 0
+        left 0
+        background blue
+        width 1px
+
+[data-aos=fade-down-to-up]
+    transform translateY(200px)
+.view-more
+    display inline-block
+    padding 10px 16px 8px 30px
+    font-size 12px
+    color white
+    position relative
+    margin-left: calc(50% - 10px);
+    margin-top 20px;
+    transform: translateX(-50%);
+    &::after
+        content ''
+        position absolute
+        width 0px
+        height 100%
+        background blue
+        left 0
+        top 50%
+        transform translateY(-50%)
+        transition 1s
+    &::before
+        content ''
+        position absolute
+        width 0
+        height calc(100% - 8px)
+        background orange
+        z-index 1
+        left 4px
+        top 50%
+        transition 1s cubic-bezier(.01,.53,.55,.99)
+        transition-delay 0.4s
+        transform translateY(-50%)
+    span
+        z-index 1
+        transition 0.9s
+        position: relative;
+        color: white;
+        background: none!important;
+        &::before 
+            content: attr(data-text);
+            display: block;
+            position: absolute;
+            top: -2px;
+            left: 1px;
+            color: blue;
+            height: 100%;
+            width: 0%;
+            z-index: 2;
+            overflow: hidden;
+            font-weight bold
+            white-space: nowrap;
+            -webkit-transition: 1s;
+            transition: 1s;
+    .arrow
+        width 12px
+        height 20px
+        position absolute
+        right: -17px;
+        top: 9px;
+        z-index 10
+        &::before
+            content ''
+            position absolute
+            width 0
+            height 2px
+            background white
+            top 5px
+            transition 0.5s
+            transform rotate(45deg)
+        &::after
+            content ''
+            position absolute
+            width 0
+            top 12px
+            height 2px
+            transform rotate(-45deg)
+            background white
+            transition 0.5s
+
+#googleMap1
+    width 100%
+    height 400px    
+
+footer
+    background blue
+    position relative
+
+.footer-info
+    margin-top 30px
+    a
+        display inline-block
+    img
+        height 26px
+        opacity 0.7
+    .text
+        color white
+        opacity 0.7
+        font-family bpg_arial
+        *
+            font-family bpg_arial
+        span
+            margin-top 10px
+            display inline-block
+            max-width 250px
+            font-family bpg_arial
+
+.footer-search
+    display block
+    width 50px
+    height 50px
+    z-index 1000
+    background blue!important
+    border none
+    position absolute
+    left 50%
+    transform translateX(-50%)
+    display flex 
+    align-items center
+    justify-content center
+    margin-top -25px
+    div
+        width 26px
+        position absolute
+        height 26px
+        transform rotate(45deg) skew(2deg, 2deg)
+        border 2px solid rgba(white, 0.5)
+        transition 0.3s linear
+        &.first
+            border-radius 20px
+            border-bottom-right-radius 0
+        &.last
+            border-radius 20px
+            width 10px
+            height 10px
+            // transform none
+    &.active
+        div
+            &.first
+                border-bottom transparent
+                border-right transparent
+                transform rotate(45deg) skew(0) translate(8px, 8px)
+                border-radius 0
+                width 18px
+                height 18px
+            &.last
+                border-top transparent
+                border-left transparent
+                border-radius 0
+                transform rotate(45deg) skew(0) translate(-8px, -8px)
+                width 18px
+                height 18px
+.footer-map
+    display none
+.copyright
+    color rgba(white, 0.7)
+    padding 25px 0 25px
+    margin-top 25px
+    border-top 1px solid rgba(white, 0.04)
+    +mq(992px)
+        padding-top 95px
+.ew
+    color rgba(white, 0.7)
+    font-size 13px
+    margin-top 50px
+    +mq(992px)
+        border-top 1px solid rgba(white, 0.04)
+        text-align center
+        padding-top 25px
+    a
+        opacity 0.7
+        transition 0.3s
+        &:hover
+            opacity 1
+    img
+        height 12px
+        filter invert(100%)
+
+.scroll-top
+    width 50px
+    height 50px
+    background #29357b!important
+    border none
+    margin-right -20px
+    margin-top -10px
+    position relative
+    transition 0.5s
+    &:hover
+        background orange!important
+    &::after
+        content ''
+        position absolute
+        width 100%
+        height 100%
+        position absolute
+        top 0
+        left 0
+        display flex 
+        align-items center
+        justify-content center
+        background url(../img/right-arrow.svg) no-repeat center center
+        background-size 16px
+        filter invert(1) brightness(10)
+        transform rotate(-90deg)
+.footer-socials
+    position fixed
+    bottom 50px
+    left 36px
+    z-index 100
+    transition 0.6s
+    &.responsive-hidden
+        +mq(1200px)
+            display none
+    a
+        width 50px
+        height 50px
+        display flex
+        align-items center
+        justify-content center
+        background #29357b
+        margin 10px 10px 0 0
+        transition 0.6s
+        +mq(1300px)
+            width 40px
+            height 40px
+        &:hover
+            background orange!important
+        img
+            width 20px
+            opacity 0.7
+            filter invert(1)
+            +mq(1300px)
+                width 16px
+    &.active
+        bottom 50%
+        transform translateY(50%)
+    &.footer
+        left -200px
+    &.visible
+        transform none
+        bottom 60px
+        left 120px
+        position absolute
+        +mq(992px)
+            bottom 70px
+            left 50%
+            transform translateX(-50%)
+        a
+            float left 
+
+.caret
+    font-size 0!important
+    width 20px!important
+    height 20px!important
+    right 15px!important
+    transform rotate(90deg)
+    background url(../img/right-arrow.svg) no-repeat center center
+    background-size: 80%;
+    filter: grayscale(100%);
+    opacity: 0.2;
+.header-search
+    width 942px
+    // height 50px
+    margin-left 50px
+    background white
+    border 1px solid rgba(black, 0.1)
+    +mq(1450px)
+        width 792px
+    +mq(1310px)
+        width 692px
+    input
+        margin-bottom 0!important
+        border-bottom none!important
+        padding 0 30px!important
+        box-sizing border-box!important
+        color rgba(black, 0.3)!important
+        &::placeholder
+            color rgba(black, 0.3)
+    .select
+        width 240px
+        border-left 1px solid rgba(black, 0.1)
+    .input-field
+        &.search-by-words
+            width 600px
+            +mq(1450px)
+                width 450px
+            +mq(1310px)
+                width 350px
+    label
+        color rgba(black, 0.3)
+        margin-left 30px
+        &.active
+            transform: translateY(-19px) scale(0.8)!important;
+.search-submit
+    width 100px
+    height 45px
+    display block
+    border none
+    background blue 
+    position relative
+    transition 0.4s
+    +mq(600px)
+        height 40px
+        border 1px solid rgba(orange, 0.6)
+    &::after
+        content ''
+        position absolute
+        width 100%
+        height 100%
+        left 0
+        top 0
+        background url(../img/search.svg) no-repeat center center
+        background-size 22px
+        transition 0.5s
+        filter grayscale(100%) invert(10)
+    &:hover
+        background orange
+        &::after
+            filter none
+.search-close-btn
+    position absolute
+    left 3px
+    top 7px
+    width 30px
+    height 30px
+    border none
+    background transparent 
+    span
+        transition 0.6s
+        transition-delay 0.6s
+        width 30px
+        height 1px
+        display block
+        background #b8becd
+    &:hover
+        span
+            background blue
+    &.active
+        span
+            &:first-child
+                transform translateY(1px) rotate(45deg)
+            &:last-child
+                transform translateY(-1px) rotate(-45deg)
+        
+.search-head-section
+    width 0
+    overflow hidden
+    opacity 0 
+    position absolute
+    top 38px
+    right 260px
+    transition 0.6s
+    +mq(1310px)
+        right 250px
+    +mq(1200px)
+        display none
+    .search-close-btn
+        left 50px
+        opacity 0
+    &.active
+        width 992px
+        overflow visible
+        opacity 1
+        +mq(1450px)
+            width 842px
+        +mq(1310px)
+            width 752px
+        .search-close-btn
+            opacity 1
+            left 0
+
+.responsive-menu
+    width 100%
+    height 100vh
+    overflow-y auto
+    overflow-x hidden
+    position fixed
+    top 0
+    left 0
+    z-index -100
+    opacity 0
+    background rgba(blue, 0.6)
+    transition 0.6s
+    &.active
+        z-index 1000
+        opacity 1
+        .langs 
+            a
+                opacity 1
+                transform rotate(90deg) translateX(0)
+        .site-navigation 
+            span
+                opacity 1
+                transform rotate(-90deg) translateX(0)
+        .menu
+            a
+                transform translateX(0)
+                opacity 1
+        .responsive-search
+            transform translateX(0)
+            opacity 1
+            
+    .langs
+        position absolute
+        right 49px
+        bottom 54px
+        +mq(768px)
+            right 29px
+        +mq(600px)
+            top 310px
+        +mq(480px)
+            right 10px
+        &::after
+            content ''
+            position absolute
+            width 1px
+            background orange
+            height 10vh 
+            left 60%
+            top -12vh
+            transform translateX(-50%)
+        a
+            text-transform uppercase
+            font-family bpg_web_caps
+            color white
+            display block
+            width 30px
+            margin-top 20px
+            opacity 0
+            transform rotate(90deg) translateX(60px)
+            transition 0.6s
+    .menu
+        margin 50px 130px
+        +mq(768px)
+            margin 50px 75px
+        +mq(600px)
+            margin 30px 30px 30px 20px
+        li
+            &.active
+                a
+                    &::after
+                        width 150px
+        a
+            color white
+            font-size 26px
+            line-height 70px
+            display block
+            // position relative
+            transform translateX(60px)
+            transition 0.6s
+            opacity 0
+            +mq(992px)
+                font-size: 22px;
+                line-height: 55px;
+            +mq(600px)
+                font-size: 20px;
+                line-height: 48px;
+            // span
+            //     // position relative
+            //     // z-index 11
+            //     &:first-child
+            //         font-size 16px
+            //         margin-right 30px
+            //         display block
+            //         float left 
+            //         margin-bottom -5px
+
+.site-navigation
+    position absolute
+    bottom 45px
+    left 60px
+    height auto
+    width 1px
+    +mq(768px)
+        left 30px
+    +mq(600px)
+        display none
+    &::after
+        content ''
+        position absolute
+        width 1px
+        height 60vh
+        background orange
+        bottom 80px
+    span
+        display block
+        color white
+        opacity 0
+        transition 0.6s
+        transform rotate(-90deg) translateX(-60px)
+.responsive-search
+    margin 120px 130px 0 130px 
+    transform translateX(100px)
+    transition 0.6s
+    opacity 0
+    +mq(768px)
+        margin 120px 40px 0 66px
+    +mq(600px)
+        margin 100px 20px 0
+    .search-by-words
+        width calc(100% - 321px)
+        +mq(992px)
+            width 100%
+            margin-bottom 10px
+    .select-wrapper
+        width 220px
+        border-left 1px solid rgba(black, 0.1)
+        +mq(992px)
+            width 100%
+    .select
+        +mq(992px)
+            width calc(100% - 110px)
+            margin-right 10px
+    .input-field
+        background white
+        height 45px
+        +mq(600px)
+            height 40px
+        input,
+        label
+            width calc(100% - 40px)
+            padding 0 20px
+            color rgba(black, 0.6)
+            border-bottom none!important
+            +mq(600px)
+                height 40px
+                
+.burger-menu
+    position fixed
+    top 50px
+    right 60px
+    cursor pointer
+    background transparent
+    border none
+    z-index 1010
+    display block
+    transition 0.6s
+    transition-delay 0.3s
+    display none
+    +mq(1200px)
+        display block
+    +mq(768px)
+        right 40px
+    +mq(600px)
+        right 20px
+        top 40px
+    &.header-down
+        top 30px
+    &.header-scroll-down
+        transform: translateY(-150px);
+    &.active
+        top 50px
+        transform none
+        +mq(600px)
+            top 40px
+        .title
+           div
+               margin-top -24px 
+        .animation
+            span
+                background orange
+                &:first-child
+                    transform rotate(135deg) translateY(-9px)
+                &:nth-child(2)
+                    transform rotate(180deg)
+                    opacity 0
+                &:nth-child(3)
+                    transform rotate(225deg) translateY(9px)
+    .title
+        height 20px
+        margin-top 2px
+        overflow hidden
+        div
+            transition 0.6s
+        span
+            display block
+            text-align right 
+            font-size 16px
+            color rgba(black, 0.6)
+            &:nth-child(2)
+                color white
+    .animation
+        margin-left 12px
+        span
+            transition 0.6s
+            display block    
+            width 35px
+            height 2px
+            margin-top 5px
+            background blue
+.nicescroll-rails-hr
+    display none!important
+
+.nicescroll-rails
+    z-index 10000!important
+.nicescroll-cursors
+    background blue!important
+    border 1px solid rgba(white, 0.6)!important
+.partniors-section
+    .container
+        +mq(992px)
+            margin 0 20px
+            padding 0
+            width calc(100% - 40px)
+
+.loader
+    width 100vw
+    height 100vh
+    position fixed
+    left 0
+    top 0
+    z-index 99999
+    background #f3f9fa
+    display flex 
+    align-items center
+    justify-content center
+    border-bottom 1px solid rgba(black, 0.05)
+    &.disable
+        transition 1s
+        transform translateY(-120vh)
+     
+#eblogo
+    width 100px
+    
+.page-title
+    margin 50px 0
+    div
+        display inline-block
+        position relative
+        font-size 32px
+        color blue
+        font-family bpg_web_caps
+        span:first-child
+            &::after
+                content ''
+                position absolute
+                width 150px
+                left -170px
+                top 23px
+                height 1px
+                background rgba(blue, 0.1)
+                +mq(992px)
+                    width 0
+            &::before
+                content ''
+                position absolute
+                width 200px
+                left -220px
+                top 27px
+                height 1px
+                background rgba(blue, 0.1)
+                +mq(992px)
+                    width 0
+        span:last-child
+            &::after
+                content ''
+                position absolute
+                width 200px
+                right -220px
+                top 27px
+                height 1px
+                background rgba(blue, 0.1)
+                +mq(992px)
+                    width 0
+            &::before
+                content ''
+                position absolute
+                width 150px
+                right -170px
+                top 23px
+                height 1px
+                background rgba(blue, 0.1)
+                +mq(992px)
+                    width 0
+    time
+        font-size 14px
+        color white
+        background blue
+        display inline-block
+        padding 5px 20px 5px
+    &.details
+        .left-side
+            &::after
+                top 32px
+            &::before
+                top 28px
+        .right-side
+            &::after
+                top 32px
+            &::before
+                top 28px
+.page-main-title
+    font-size 32px
+    color blue
+    font-family bpg_web_caps
+    margin-top 50px
+    margin-bottom -50px
+    text-transform uppercase
+.news-page
+    .news-section
+        margin 0 0 100px
+        +mq(600px)
+            margin 0
+        .secondary-title
+            margin-top 40px
+
+.pagination
+    text-align center
+    +mq(600px)
+        margin 80px 0 50px
+    li
+        background #f3f9fa
+        border-radius 0
+        display inline-flex 
+        align-items center
+        justify-content center
+        width 40px
+        height 40px
+        a
+            width 40px
+            height 40px
+            transition 0.4s
+            display flex 
+            align-items center
+            justify-content center
+            font-size 16px
+            color #7e7e7e
+            position relative
+            &::after
+                content ''
+                position absolute
+                width 100%
+                height 2px
+                left 0
+                transition 0.6s
+                bottom 0
+                background #eef1f1
+            &::before
+                content ''
+                position absolute
+                width 0
+                transition 0.6s
+                height 2px
+                right 0
+                bottom 0
+                z-index 1
+                background blue
+            img
+                width 10px
+                opacity 0.4
+        &.active,
+        &:hover
+            background #f3f9fa
+            a
+                color blue
+                &::before
+                    width 100%
+                    right auto 
+                    left 0
+.news-page
+    .text
+        dots(114px,6)
+        *
+            font-family bpg_arial
+.company-navigation
+    width 100%
+    margin -5px 0 35px
+    background #f3f9fa
+    font-size 0
+    border 1px solid #e3e7f1
+    text-align center
+    .inside
+        border: 7px solid white
+    .item
+        font-size 14px
+        display inline-block
+        padding 25px 50px 21px
+        position relative
+        &::after
+            content ''
+            position absolute
+            width 2px 
+            height 15px
+            left -1px
+            top 50%
+            transform translateY(-45%)
+            background rgba(#9aa1b3, 0.8)
+        &:first-child
+            &::after
+                display none
+        a
+            color #9aa1b3
+            position relative
+            &::after
+                content: attr(data-text);
+                display: block;
+                position: absolute;
+                top: -2px;
+                left: 0;
+                color: blue;
+                height: 100%;
+                width: 0%;
+                z-index: 2;
+                overflow: hidden;
+                white-space: nowrap;
+                -webkit-transition: 1s;
+                transition: 1s;
+            &:hover,
+            &.active
+                &::after
+                    width 100%
+
+.team-member
+    display block
+    margin-top 30px
+    position relative
+    background #f3f9fa
+    border 1px solid #e3e7f1
+    .image
+        transition 0.6s
+        image(100%)
+        filter grayscale(100%)
+        transition 0.5s
+    .text
+        // background #7f8c8d
+        background #f3f9fa
+        position relative
+        padding-bottom 30px
+        padding 10px 10px 30px
+        transition 0.6s
+        &::after
+            content ''
+            position absolute
+            width 25px
+            height 1px
+            background blue
+            top 28px
+            left 50%
+            transition 0.6s
+            transform translateX(-50%)
+        .title
+            padding-top 40px
+            span
+                color blue
+                position relative
+                font-size 16px
+                &::after
+                    content: attr(data-text);
+                    display: block;
+                    position: absolute;
+                    top: -2px;
+                    left: 0;
+                    color: white;
+                    height: 100%;
+                    width: 0%;
+                    z-index: 2;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    -webkit-transition: 1s;
+                    transition: 1s;
+        .position
+            span 
+                color blue
+                position relative
+                font-family bpg_arial
+                *
+                    font-family bpg_arial
+                &::after
+                    content: attr(data-text);
+                    display: block;
+                    position: absolute;
+                    top: -2px;
+                    left: 0;
+                    color: white;
+                    height: 100%;
+                    width: 0%;
+                    z-index: 2;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    -webkit-transition: 1s;
+                    transition: 1s;
+    .each-project-lines
+        span
+            background #e1e1e1
+            &:first-child
+                right 10px
+                top 10px
+            &:nth-child(2)
+                left 10px
+                top 10px
+            &:nth-child(3)
+                left 10px
+                bottom 10px
+            &:nth-child(4)
+                right 10px
+                bottom 10px
+    &:hover
+        .text
+            background blue
+            &::after
+                transform translateX(-50%) rotate(90deg)
+                background white
+        .title
+            span
+                &::after
+                    width 100%
+        .position
+            span
+                &::after
+                    transition-delay 0.3s
+                    width 100%
+        .each-project-lines
+            span:first-child
+                width calc(100% - 20px)
+                opacity 1
+            span:nth-child(2)
+                height calc(100% - 20px)
+                opacity 1
+            span:nth-child(3)
+                width calc(100% - 20px)
+                opacity 1
+            span:nth-child(4)
+                height calc(100% - 20px)
+                opacity 1
+        .image
+            filter grayscale(0)
+.team
+    margin-bottom 60px
+    
+.become-member
+    background-size cover
+    padding 150px 0
+    position relative
+    margin-top 140px
+    +mq(600px)
+        margin-bottom 100px
+    >.container
+        position relative
+        z-index 1
+    &::after
+        content ''
+        position absolute
+        width 100%
+        height 100%
+        background rgba(blue, 0.6)
+        left 0
+        top 0
+    .title
+        color white
+        font-size 24px
+    .text
+        color white
+        font-size 16px
+        font-family bpg_arial
+        *
+            font-family bpg_arial
+    .view-more
+        margin-top 20px
+        transform translateX(-20px)
+        +mq(1200px)
+            float none!important
+            transform none
+            margin-left 0
+        span
+            // font-family bpg_arial
+            font-size 16px
+            display inline-block
+        .arrow
+            top 12px
+            &::before,
+            &::after
+                transition-delay 0s!important
+        &::after
+            width 100%
+            height 100%
+        &::before
+            width calc(100% + 16px)
+        span
+            color inherit
+            text-shadow none
+            color blue
+            &::before
+                width 100%
+                display none
+    &:hover
+        .view-more
+            .arrow
+                &::before,
+                &::after
+                    content ''
+                    width 10px
+                    background blue
+
+.company-burger
+    cursor pointer
+    background transparent
+    border none
+    z-index 10
+    transition 0.6s
+    transition-delay 0.3s
+    display none
+    margin 20px auto 25px
+    +mq(1200px)
+        display block
+    +mq(768px)
+        right 40px
+    +mq(600px)
+        right 20px
+        top 40px
+    &.active
+        top 50px
+        transform none
+        +mq(600px)
+            top 40px
+        .title
+           div
+               margin-top -24px 
+        .animation
+            span
+                &:first-child
+                    transform rotate(0) translateY(11px)
+                &:nth-child(2)
+                    transform rotate(0)
+                    opacity 0
+                &:nth-child(3)
+                    transform rotate(0) translateY(-11px)
+    .title
+        height 20px
+        margin-top 2px
+        overflow hidden
+        display inline-block
+        div
+            transition 0.6s
+        span
+            display block
+            text-align left 
+            font-size 16px
+            color rgba(black, 0.6)
+    .animation
+        margin-left 12px
+        margin-right 10px
+        display inline-block
+        span
+            transition 0.6s
+            display block    
+            width 35px
+            height 2px
+            margin-top 6px
+            background blue
+
+.company-section
+    +mq(1200px)
+        display none
+        
+.responsive-company-nav
+    display none
+    padding-bottom 10px
+    .item-resp
+        display block
+        a
+            font-size 17px
+            display block
+            color rgba(0,0,0,0.6)
+            padding 5px 0 3px
+    
+.team-page,
+.become-member
+    .container
+        +mq(600px)
+            width calc(100% - 20px)
+            margin 0 10px
+    
+.each-member
+    margin-top 65px
+    position relative
+    .image
+        position relative
+        +mq(992px)
+            width 360px
+            float none!important
+            margin 15px auto
+        .image-inside
+            image(320px)
+            width 320px
+            margin 15px
+            z-index 1
+            +mq(992px)
+                width 330px
+                padding-top 330px
+    .back
+        content ''
+        position absolute
+        width 100%
+        left 0
+        top 0
+        height 250px
+        background #2980b9
+        +mq(992px)
+            top -15px
+    .text
+        width calc(100% - 390px)
+        margin-left 30px
+        +mq(992px)
+            text-align center
+            width 100%!important
+            margin-left 0
+    .title
+        font-size 24px
+        margin-top 20px
+        color blue
+    .position 
+        font-size 16px
+        color #9aa1b3
+        font-family bpg_arial
+        margin-top 10px
+        *
+            font-family bpg_arial
+    .text-body
+        font-size 14px
+        color #2b2b2b
+        font-family bpg_arial
+        margin-top 20px
+        *
+            font-family bpg_arial
+
+.text-block
+    font-family bpg_arial
+    font-size 14px
+    color #7c7c7c
+    margin 20px auto
+    max-width 992px
+    width 100%
+    *
+        font-family bpg_arial
+
+.each-degree
+    margin-top 80px
+    position relative   
+    &::after
+        content ''
+        position absolute
+        width 1px 
+        height 100%
+        left 0
+        top 0
+        background #e3e7f1
+        +mq(600px)
+            display none
+    .image
+        width 600px
+        image(420px)
+        display block
+        margin-left 60px
+        box-shadow 0 0 20px rgba(black, 0.1)
+        +mq(1200px)
+            width calc(100% - 60px)
+            padding-top 50%
+        +mq(600px)
+            margin-left 0
+            width 100%
+            padding-top 50%
+    .text
+        width calc(100% - 720px)
+        margin-left 60px
+        +mq(1200px)
+            width calc(100% - 60px)
+        +mq(600px)
+            margin-left 0
+            width 100%
+    .title
+        div
+            span
+                color #f4f4f4
+                margin-top 30px
+                font-size 50px
+                font-weight bold
+                display block
+                text-align center
+                line-height 1
+        span
+            display block
+            text-align center
+            line-height 1
+            color #262626  
+            margin-top -15px
+            font-size 16px
+            text-transform uppercase
+    .text-body
+        font-size 16px
+        font-family bpg_arial
+        margin-top 40px
+        text-align justify
+        *
+            font-family bpg_arial
+
+.degrees
+    +mq(600px)
+        padding-bottom 60px
+    .pagination
+        margin-top 100px
+        margin-bottom 0
+
+.partners
+    margin 80px auto
+    +mq(992px)
+        padding 0 20px!important
+.each-partner
+    +mq(992px)
+        padding 0 10px!important
+    .inside
+        position relative
+        display block
+        border 1px solid #e3e7f1
+        margin-bottom 34px
+        &::after
+            content ''
+            left 0
+            top 0
+            position absolute
+            width 100%
+            height 100%
+            transition 0.5s
+            background transparent
+        +mq(992px)
+            margin-bottom 20px
+        .image
+            image(60%)
+            z-index 1
+            background-size 60%
+        &:hover
+            &::after
+                background #f3f9fa
+                transform translate(10px, 10px)
+
+.vacancy-form
+    max-width 690px
+    width calc(100% - 40px)
+    margin 150px auto 80px
+
+.form-submit-btn
+    margin-top 5px
+    padding 17px 100px 13px 
+    border none
+    background blue
+    color white
+    transition 0.6s
+    span
+        position relative
+        display inline-block
+        &::before
+            content attr(data-text)
+            width 0
+            overflow hidden
+            height 100%
+            position absolute
+            left 0
+            transition 0.6s
+            top 0
+            color blue
+    +mq(480px)
+        width 100%
+    &:hover
+        background orange
+        span
+            &::before
+                width 100%
+    &:focus
+        background blue
+
+.career-text
+    margin-top 80px!important
+    .image
+        image(400px)
+        &.video
+            position relative
+            a
+                position absolute
+                width 80px
+                height 80px
+                display block
+                border-radius 50%
+                left 50%
+                top 50%
+                transform translate(-50%, -50%)
+                background white url(../img/play-button.svg) no-repeat center center
+                background-size 75%
+                &::after
+                    content ''
+                    width 100%
+                    height 100%
+                    left 0
+                    border-radius 50%
+                    top 0
+                    position absolute
+                    background rgba(white, 0.4)
+                    transition 0.5s
+                    +mq(600px)
+                        transform scale(1.22,1.22)
+            &:hover
+                a::after
+                    transform scale(1.22,1.22)
+        +mq(1200px)
+            padding-top 45%
+        +mq(600px)
+            margin 0 -20px
+            padding-top 60%
+    .title
+        font-size 24px
+        color blue
+        margin-top 30px
+        font-weight bold
+    .text
+        font-family bpg_arial
+        font-size 15px
+        margin-top 10px
+        text-align justify
+        *
+            font-family bpg_arial
+
+.vacancy-title
+    margin 140px 0 70px
+    position relative
+    &::after
+        content ''
+        position absolute
+        width 100%
+        height 1px
+        top 10px
+        left 0
+        background #e3e7f1
+    span
+        position relative
+        background white
+        z-index 1
+        font-size 16px
+        padding 0 20px
+        color blue
+
+.each-vacancy
+    margin-top 30px
+    .image
+        image(220px)
+        width 330px
+        +mq(800px)
+            width 100%
+            padding-top 50%
+    .title
+        font-size 16px
+        color blue
+    .text
+        width calc(100% - 360px)
+        +mq(800px)
+            width 100%
+            margin-top 15px
+    .date
+        margin-top 3px
+        time
+            display inline-block
+            padding 6px 20px 4px 30px
+            background url('../img/calendar.svg') no-repeat 0px center 
+            background-size 20px
+    .text-body
+        font-family bpg_arial
+        margin-top 7px
+        dots(66px,3)
+        *
+            font-family bpg_arial
+    .more
+        font-family bpg_arial
+        display inline-block
+        margin-top 25px
+        background blue
+        padding 8px 30px 6px
+        transition 0.6s
+        text-transform uppercase
+        span
+            color white
+            font-size 14px
+            display inline-block
+            position relative
+            &::before
+                content: attr(data-text);
+                width: 0;
+                overflow: hidden;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                transition: 0.6s;
+                top: 0;
+                color: #111e6c;
+        &:hover
+            background orange
+            span
+                &::before
+                    width 100%
+            
+.all-text
+    margin-top 20px
+    font-size 14px
+    font-family bpg_arial!important
+    *
+        font-family bpg_arial!important
+        font-size 14px
+    h1,h2,h3,h4,h5,h6
+        margin 30px 0 10px!important
+        font-family bpg_arial_caps!important
+    li
+        margin-left 15px
+        font-size 14px
+        list-style-image url(../img/dot.svg)!important
+
+.projects
+    &.company-section
+        .item
+            padding 25px 20px 21px
+        +mq(1450px)
+            display none
+    &.company-burger
+        +mq(1450px)
+            display block
+            
+.projects-filter
+    margin 20px 0
+    a
+        display block
+        margin 10px 0 10px 40px 
+        transition 0.6s
+        padding 5px 10px 5px
+        position relative
+        &:first-child
+            &::after
+                display none
+        &::after
+            width 20px
+            height 1px
+            background blue
+            position absolute
+            left -30px
+            top 14px
+            content ""
+        +mq(600px)
+            width calc(100% - 40px)
+            &:first-child
+                &::after
+                    display block
+        span
+            color #9aa1b3
+            position relative
+            display inline-block
+            &::before
+                content attr(data-text)
+                position absolute
+                width 0
+                overflow hidden
+                height 100%
+                top 0
+                transition 0.6s
+                left 0
+                color white
+        &.active,
+        &:hover
+            background blue
+            span
+                &::before
+                    width 100%
+
+.projects-item
+    display block
+    transition 0.6s
+    margin-top 70px
+    .image-block
+        position relative
+    .text
+        padding-bottom 30px
+    .image
+        image(55%)
+        position relative
+        filter grayscale(100%)
+    .title
+        font-size 24px
+        color black
+        dots(58px, 2)
+        line-height 1.2
+        margin 30px 30px 15px
+        +mq(1200px)
+            margin 30px 20px 15px
+            font-size 18px
+            dots(43px,2)
+    .info
+        font-size 16px
+        color black
+        margin 0 30px
+        font-family bpg_arial
+        +mq(1200px)
+            margin 0 20px
+        span
+            font-family bpg_arial
+            color black
+            font-weight bold
+    .lines
+        width 100%
+        height 100%
+        position absolute
+        top 0
+        left 0
+        span
+            display block
+            position absolute
+            background rgba(white, 0.7)
+            z-index 1
+            transition 0.6s
+            &:first-child
+                height 1px
+                right 20px
+                top 20px
+                width 0
+            &:nth-child(2)
+                height 0
+                left 20px
+                top 20px
+                width 1px
+            &:nth-child(3)
+                height 1px
+                left 20px
+                bottom 20px
+                width 0
+            &:nth-child(4)
+                height 0
+                right 20px
+                bottom 20px
+                width 1px
+    &:hover
+        box-shadow 0 0 20px rgba(black, 0.1)
+        .lines
+            span
+                &:first-child
+                    width calc(100% - 40px)
+                &:nth-child(2)
+                    height calc(100% - 40px)
+                &:nth-child(3)
+                    width calc(100% - 40px)
+                &:nth-child(4)
+                    height calc(100% - 40px)
+        .ongoing-title
+            bottom calc(100% - 65px)
+            bottom 30px
+        .image
+            filter grayscale(0)
+
+.ongoing-title
+    background blue
+    display inline-block
+    position absolute
+    right 30px
+    transition 0.6s
+    bottom -16px
+    color white
+    z-index 1
+    padding 7px 10px 4px;
+    img
+        width 15px
+        margin-bottom -2px
+        filter invert(100%)
+.projects-page
+    margin-bottom 70px
+
+.project-type
+    font-size 18px!important
+    color black!important
+    .image
+        image(30px)
+        width 30px
+        margin-bottom -8px
+        background-color #2980b9
+        background-size 60%
+
+.project-details
+    position relative
+    padding 50px 0
+    +mq(992px)
+        padding 0
+    &::after
+        content ''
+        position absolute
+        left 120px
+        right 120px
+        height 100%
+        box-shadow 0 0 30px rgba(black, 0.1)
+        top 0
+        +mq(992px)
+            display none
+    .inside
+        position relative
+        z-index 2
+    .text
+        padding 70px 
+        font-size 14px
+        width calc(100% - 400px)
+        font-family bpg_arial!important
+        list-style-type: disc;
+        *
+            font-family bpg_arial!important
+            list-style-type: disc;
+        +mq(1200px)
+            width calc(100% - 340px)
+            padding 30px
+        +mq(992px)
+            width 100%
+            padding 30px 0
+        *
+            font-family bpg_arial!important
+.project-slider
+    .image
+        image(65%)
+
+.project-info-block
+    position relative
+    margin-top -70px
+    +mq(992px)
+        margin-top 20px
+        width 100%
+    .inside
+        position relative
+        width 330px
+        background white
+        padding 40px
+        z-index 1
+        box-shadow 0 0 30px rgba(black, 0.1)
+        margin-right 70px
+        +mq(1200px)
+            width 310px
+            margin-right 30px
+        +mq(992px)
+            padding 0
+            width 100%
+            margin-right 0px
+            box-shadow none
+        &::after
+            content ''
+            position absolute
+            left 20px 
+            top 20px
+            right 20px
+            bottom 20px
+            border 1px solid rgba(black, 0.1)
+            +mq(992px)
+                display none
+    .each-info
+        font-family bpg_arial
+        font-size 14px
+        margin 5px 0
+        span
+            font-family bpg_arial
+            font-weight bold
+            font-size 14px
+.projects-nav
+    padding 70px
+    +mq(1200px)
+        padding 30px
+    +mq(992px)
+        padding 0
+    +mq(768px)
+        display none
+    .prev
+        background #fdfefe
+        border 1px solid #f6fafb
+        width calc(50% - 30px)
+        display block
+        padding 20px 0
+        position relative
+        +mq(1200px)
+            width calc(50% - 5px)
+        &::after
+            content ''
+            width 0
+            right 0
+            position absolute
+            height 100%
+            top 0
+            transition 0.6s ease
+            background #f3f9fa
+        &:hover
+            &::after
+                width 100%
+        .arrow
+            display block
+            width 70px
+            text-align center
+            opacity 0.2
+            line-height: 110px;
+            height: 60px;
+            position relative
+            &::after
+                content ''
+                position absolute
+                rioght -20px
+                height 30px
+                width 1px 
+                background #f3f9fa
+            img
+                width 40px
+    .next
+        background #fdfefe
+        border 1px solid #f6fafb
+        width calc(50% - 30px)
+        display block
+        padding 20px 0
+        position relative
+        &::after
+            content ''
+            width 0
+            left 0
+            position absolute
+            height 100%
+            transition 0.6s ease
+            top 0
+            background #f3f9fa
+        &:hover
+            &::after
+                content ''
+                width 100%
+        .arrow
+            display block
+            width 70px
+            text-align center
+            height: 60px;
+            opacity 0.2
+            line-height: 110px;
+            img
+                width 40px
+                transform rotate(-180deg)
+    .arrow-text
+        width calc(100% - 70px)
+        padding 0 30px
+        box-sizing border-box
+        span
+            font-family bpg_arial
+            color #2c3e50
+            font-size 14px
+        p
+            color #2c3e50
+            margin-top 10px
+            dots(45px,2)
+    .inside
+        position relative
+        z-index 1
+.project-arrows
+    position absolute
+    left -122px
+    z-index 1
+    top 0
+    font-size 0
+    +mq(992px)
+        top -90px
+        left 0
+    button
+        width 50px
+        height 50px
+        display inline-flex 
+        align-items center
+        justify-content center
+        background white
+        border none
+        transition 0.6s
+        &:hover
+            background orange
+        &.prev
+            margin-right 2px
+            transform rotate(180deg)
+    img
+        width 15px
+
+.statistics
+    border 1px solid #e3e7f1
+    padding 10px 10px 0
+    margin-top 70px
+    +mq(600px)
+        border none
+    .each-number
+        border 1px solid #e3e7f1
+        padding 40px 0
+        position relative
+        margin 0 0 10px
+        background #f3f9fa
+        +mq(600px)
+            margin -10px -10px 25px            
+    .number
+        font-size 90px
+        line-height 1
+        color blue
+        position relative
+        z-index 1
+        font-weight bold
+        +mq(1400px)
+            font-size 70px
+            margin-top 20px
+        +mq(600px)
+           font-size 30px
+    .text 
+        position relative
+        z-index 1
+        font-weight bold
+        color blue
+        line-height 1.3
+        dots(40px,2)
+    .background
+        position absolute
+        width 80%
+        height 100%
+        left 0
+        top 0
+        background-position center center
+        background-repeat no-repeat
+        background-size 37%
+        opacity 0.1
+
+.about-team
+    background #f3f9fa
+    padding 50px 0 130px
+    margin-top 70px
+.about-team-title
+    font-size: 24px;
+    color: #111e6c;
+.about-team-arrows
+    margin -5px 0 10px
+    button
+        width 50px
+        height 50px
+        display inline-flex 
+        align-items center
+        justify-content center
+        background white
+        border none
+        transition 0.6s
+        &:hover
+            background orange
+        &.prev
+            margin-right 2px
+            transform rotate(180deg)
+    img
+        width 15px
+
+.certificates-block
+    padding-left 70px
+    position relative
+    margin-top 140px
+    +mq(1500px)
+        padding-left 20px
+    +mq(1200px)
+        display none
+    .image
+        width 650px
+        margin 20px
+        image(432px)
+        box-shadow 0 0 20px rgba(black, 0.2)
+        +mq(1500px)
+            width 500px
+    .text
+        width calc(100% - 710px)
+        margin-left 20px
+        padding 100px 50px
+        +mq(1500px)
+            width calc(100% - 600px)
+            padding 100px 0
+    .title
+        font-size 24px    
+    .text-body
+        text-align justify
+        margin-top 20px
+        dots(130px, 6)
+        font-family bpg_arial
+        *
+            font-family bpg_arial
+    .arrows
+        position absolute
+        left 760px
+        padding 0 70px
+        bottom 70px
+        width calc(100% - 740px)
+        display flex 
+        justify-content center
+        align-items center
+        z-index 2
+        +mq(1500px)
+            width calc(100% - 480px)
+            left 510px
+        img
+            width 20px
+            opacity 0.8
+            margin-bottom -4px
+            filter grayscale(100%)
+        button
+            border none
+            background transparent
+        .nav-text
+            margin 0 50px
+            font-size 50px
+            line-height 1
+            color #262626
+            .current
+                font-size 50px
+                line-height 1
+                color #262626
+            .amount
+                font-size 18px
+                line-height 1
+                color #262626
+
+.degree-link
+    position absolute
+    width 1px
+    height calc(100% - 40px)
+    top 20px
+    background #e3e7f1
+    left 0
+    span
+        background white
+        display block
+        width 100px
+        position absolute
+        left -48px
+        font-size 16px
+        padding 0 10px
+        top 50%
+        display flex 
+        justify-content center
+        text-align center
+        transform translateY(-50%)
+        text-align center
+        color black
+        transform rotate(-90deg)
+.search-results
+    font-family bpg_arial
+    span
+        font-family bpg_arial
+        font-weight bold
+.cat-and-results
+    margin-bottom 100px
+    .search-results
+        display inline-block
+        margin 0 20px
+        position relative
+        &:nth-child(2)::after
+            content ''
+            top 3px
+            left -20px
+            position absolute
+            width 1px
+            height 16px
+            background #7c7c7c
+            +mq(600px)
+                display none
+
+#contactMap
+    width 100%
+    height 390px
+
+.contact-page-form
+    margin-top 60px
+    padding-left 119px
+    position relative
+    +mq(992px)  
+        padding-left 50px
+    +mq(600px)  
+        padding-left 0px
+    .contact-title
+        position absolute
+        left 40px
+        top 0
+        width 1px
+        height 100%
+        background #e3e7f1
+        +mq(992px)  
+            left 10px
+        +mq(600px)  
+            display none
+        span
+            position absolute
+            width 250px
+            font-size 24px
+            left -123px
+            top 106px
+            background white
+            z-index 1
+            text-align right
+            transform rotate(-90deg)
+
+.contact-page-info
+    margin-top 60px
+    a
+        display block
+        background-color #fdfefe
+        padding 40px 20px 40px 70px
+        border 1px solid #e3e7f1
+        margin-bottom 20px
+        color blue
+        transition 0.5s
+        &.phone
+            background url(../img/call.svg) no-repeat 20px center 
+            background-size 30px
+        &.address
+            background url(../img/location.svg) no-repeat 20px center 
+            background-size 30px
+        &.email
+            background url(../img/email.svg) no-repeat 20px center 
+            background-size 30px
+        &:hover
+            background-color #f3f9fa
+
+.contact-page.container
+    +mq(600px)
+        margin 0
+        padding 0
+        width 100%
+
+.each-activity
+    margin-bottom 32px
+    padding 20px
+    transition 0.6s
+    +mq(1200px)
+        padding 0
+    .image-block
+        position relative
+    .image
+        filter grayscale(100%)
+        transition 0.5s
+        image(60%)
+    .each-review
+        display block
+        padding 10px 40px 8px
+        font-size 22px
+        color white
+        position absolute
+        bottom 30px
+        left 30px
+        background blue
+        +mq(1200px)
+            display none
+        +mq(600px)
+            padding 10px 5px 8px 30px  
+            font-size 16px   
+            width auto 
+        &::after
+            content ''
+            position absolute
+            width 0px
+            height 100%
+            background blue
+            left 0
+            top 50%
+            transform translateY(-50%)
+            transition 1s
+        &::before
+            content ''
+            position absolute
+            width 5px
+            height calc(100% - 10px)
+            background orange
+            z-index 1
+            left 0
+            top 50%
+            transition 1s cubic-bezier(.01,.53,.55,.99)
+            transition-delay 0.4s
+            transform translateY(-50%)
+        span
+            z-index 1
+            transition 0.9s
+            position: relative;
+            color: white;
+            background: none!important;
+            &::before {
+                content: attr(data-text);
+                display: block;
+                position: absolute;
+                top: -4px;
+                left: 0;
+                color: blue;
+                height: 100%;
+                width: 0%;
+                z-index: 2;
+                overflow: hidden;
+                white-space: nowrap;
+                -webkit-transition: 1s;
+                transition: 1s;
+                // transition-delay 1s
+            }
+        .arrow
+            width 12px
+            height 20px
+            position absolute
+            right -25px
+            top 15px
+            z-index 10
+            +mq(600px)
+                top 11px
+            &::before
+                content ''
+                position absolute
+                width 0
+                height 2px
+                background white
+                top 5px
+                transition 0.5s
+                transform rotate(45deg)
+            &::after
+                content ''
+                position absolute
+                width 0
+                top 12px
+                height 2px
+                transform rotate(-45deg)
+                background white
+                transition 0.5s
+        &:hover
+            span
+                color inherit
+                text-shadow none
+                &::before
+                    width 100%
+            &::after
+                width 100%
+                height 100%
+                // animation indexReview 1s cubic-bezier(.01,.53,.55,.99) 0.5s forwards
+            &::before
+                width calc(100% + 30px)
+                transform translate(5px, -50%)
+            .arrow
+                &::before,
+                &::after
+                    content ''
+                    width 10px
+                    background blue
+                    transition-delay 1s
+    .lines
+        width 100%
+        height 100%
+        position absolute
+        top 0
+        left 0
+        span
+            display block
+            position absolute
+            background rgba(white, 0.7)
+            z-index 1
+            transition 0.6s
+            &:first-child
+                height 1px
+                right 20px
+                top 20px
+                width 0
+            &:nth-child(2)
+                height 0
+                left 20px
+                top 20px
+                width 1px
+            &:nth-child(3)
+                height 1px
+                left 20px
+                bottom 20px
+                width 0
+            &:nth-child(4)
+                height 0
+                right 20px
+                bottom 20px
+                width 1px
+    &:hover
+        box-shadow 0 0 20px rgba(black, 0.1)
+        +mq(1200px)
+            box-shadow none
+        .image
+            filter grayscale(0)
+        .lines
+            span
+                &:first-child
+                    width calc(100% - 40px)
+                &:nth-child(2)
+                    height calc(100% - 40px)
+                &:nth-child(3)
+                    width calc(100% - 40px)
+                &:nth-child(4)
+                    height calc(100% - 40px)
+        .view-btn
+            transform translateX(0)
+            opacity 1
+    .text
+        margin 20px 0
+        font-family bpg_arial
+        dots(92px, 4)
+        text-align justify
+        *
+            font-family bpg_arial
+        .title-resp
+            display none
+            margin-bottom 3px
+            color black
+            font-size 18px;
+            font-family bpg_arial_caps
+            +mq(1200px)
+                display block
+    .view-btn
+        font-family bpg_arial
+        color black
+        padding 0 40px
+        position relative
+        transform translateX(-50px)
+        opacity 0
+        transition 0.6s
+        margin-bottom 10px
+        +mq(600px)
+            opacity 1
+            transform none
+        &::after
+            content ''
+            position absolute
+            width 30px
+            height 1px
+            top 50%
+            left 0
+            background orange
+            transform translateY(-50%)
+        &::before
+            content ''
+            position absolute
+            width 30px
+            height 1px
+            top 50%
+            right 0
+            background orange
+            transform translateY(-50%)
+
+#activitySlider
+    margin 0 -10px 30px
+    +mq(600px)
+        margin 0 0 30px
+    .activity-slider-main
+        margin-bottom 20px
+        +mq(600px)
+            margin-bottom 10px
+    .slide
+        margin 0 10px
+        +mq(600px)
+            margin 0 5px
+        .image
+            image(50%)
+            +mq(600px)
+                padding-top 60%!important
+.activity-slider-thmb
+    +mq(600px)
+        display none!important
+    .image
+        &::after
+            content ''
+            border 0 solid blue
+            transition 0.3s
+            left 0px
+            right 0
+            position absolute
+            top 0px
+            bottom 0
+    .slick-slide
+        cursor pointer
+    .slick-current
+        .image::after
+            border 5px solid blue
+
+.activity-details
+    display block
+    .text
+        font-family bpg_arial
+        *
+            font-family bpg_arial
+    .image
+        image(40%)
+        display block
+.similar-activities
+    padding 20px
+    +mq(1200px)
+        display none
+    .title
+        margin-top 80px
+        margin-bottom 40px
+        position relative
+        &::after
+            content ''
+            width 100%
+            height 1px
+            background #f4f4f4
+            position absolute
+            left 0
+            top 25px
+        .title-text
+            background white
+            margin-top 14px
+            position relative
+            font-size 18px
+            z-index 1
+            padding-right 20px
+            margin-left -20px
+            +mq(1200px)
+                margin-left 0
+    .arrows
+        background white
+        position relative
+        padding-left 20px
+        z-index 1
+        img
+            width 16px
+        button
+            width 50px
+            height 50px
+            border none
+            display flex 
+            align-items center
+            justify-content center
+            transition 0.5s
+            &:hover
+                background orange
+        .prev
+            transform rotate(-180deg)
+            margin-right 1px
+    .item
+        .image
+            image(40%)
+            position relative
+            &::after
+                content ''
+                position absolute
+                width 100%
+                height 100%
+                top 0
+                left 0
+                background rgba(#414c57, 0.8)
+                transition 0.6s
+            .each-review
+                z-index 1
+                display block
+                padding 10px 30px 8px
+                font-size 16px
+                color white
+                position absolute
+                top 50%
+                left 50%
+                transform translate(-50%, -50%)
+                +mq(600px)
+                    padding 10px 5px 8px 30px  
+                    font-size 16px   
+                    width auto 
+                &::after
+                    content ''
+                    position absolute
+                    width 0px
+                    height 100%
+                    background blue
+                    left 0
+                    top 50%
+                    transform translateY(-50%)
+                    transition 1s
+                &::before
+                    content ''
+                    position absolute
+                    width 0
+                    height calc(100% - 10px)
+                    background orange
+                    z-index 1
+                    left 5px
+                    top 50%
+                    transition 1s cubic-bezier(.01,.53,.55,.99)
+                    transition-delay 0.4s
+                    transform translateY(-50%)
+                span
+                    z-index 1
+                    transition 0.9s
+                    position: relative;
+                    color: white;
+                    background: none!important;
+                    &::before {
+                        content: attr(data-text);
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        color: blue;
+                        height: 100%;
+                        width: 0%;
+                        z-index: 2;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        -webkit-transition: 1s;
+                        transition: 1s;
+                        // transition-delay 1s
+                    }
+                .arrow
+                    width 12px
+                    height 20px
+                    position absolute
+                    right -25px
+                    top 12px
+                    z-index 10
+                    +mq(600px)
+                        top 11px
+                    &::before
+                        content ''
+                        position absolute
+                        width 0
+                        height 2px
+                        background white
+                        top 5px
+                        transition 0.5s
+                        transform rotate(45deg)
+                    &::after
+                        content ''
+                        position absolute
+                        width 0
+                        top 12px
+                        height 2px
+                        transform rotate(-45deg)
+                        background white
+                        transition 0.5s
+            
+            &:hover
+                &::after
+                    opacity 0
+                .each-review
+                    span
+                        color inherit
+                        text-shadow none
+                        &::before
+                            width 100%
+                    &::after
+                        width 100%
+                        height 100%
+                        // animation indexReview 1s cubic-bezier(.01,.53,.55,.99) 0.5s forwards
+                    &::before
+                        width calc(100% + 30px)
+                    .arrow
+                        &::before,
+                        &::after
+                            content ''
+                            width 10px
+                            background blue
+                            transition-delay 1s
+
+.container.activity-details
+    +mq(600px)
+        margin 0 
+        padding 0
+        width 100%
+    .row
+        +mq(600px)
+            margin 0
+.news-details-page
+    .page-title
+        time
+            background transparent
+            color blue
+            padding 5px 0
+            img
+                width 20px
+                margin-right 5px
+                margin-bottom -4px
+    .projects-nav
+        padding 70px 0 0
+
+.activity-slider-main
+    position relative
+    .slick-next
+        position absolute
+        width 50px
+        height 50px
+        bottom 25px
+        right 35px
+        top auto
+        transform none
+        background-color white!important
+        background-image url('../img/right-arrow.svg')
+        background-size 40%
+        background-repeat no-repeat
+        background-position center center
+        transition 0.5s
+        +mq(600px)
+            right 25px
+            bottom 15px
+        &::before
+            display none
+        &:hover
+            background-color orange!important
+    .slick-prev
+        position absolute
+        width 50px
+        height 50px
+        bottom 25px
+        right 87px
+        left auto
+        z-index 1
+        top auto
+        transform none
+        background-color white!important
+        background-image url('../img/right-arrow.svg')
+        background-size 40%
+        background-repeat no-repeat
+        background-position center center
+        transition 0.5s
+        transform rotate(180deg)
+        +mq(600px)
+            right 77px
+            bottom 15px
+        &::before
+            display none
+        &:hover
+            background-color orange!important
+
+.gmap-content
+    .img
+        width 300px
+        image(200px)
+        display block
+
+.gmap-content-outer
+    margin 4px 0 0 4px
+    .gmap-title
+        margin-top 10px
+        max-width: 295px;
+        color: blue;
+        text-align: center;
+
+.google-map
+    position relative
+
+.map-btns
+    z-index 2
+    position absolute
+    right 40px
+    top 40px
+    padding 5px
+    background #2980b9
+    +mq(1200px)
+        display none
+    button
+        border 10px solid #2980b9
+        background blue
+        max-width 84px
+        overflow hidden
+        transition 1s ease
+        &:hover
+            max-width 600px
+        div
+            padding: 6px 22px 8px 8px;
+            width auto
+            min-width 300px
+        span
+            color white
+            margin-top 13px
+            max-width 200px
+            overflow hidden
+    img
+        width 30px
+        margin 10px 18px -8px 10px
+        
+
+.index-review-resp
+    position relative
+    display  none
+    +mq(600px)
+        display block
+    .item
+        .image
+            image(calc(100vh - 200px))
+    .links
+        position absolute
+        top 0 
+        left 0
+        z-index: 11
+        width 100%
+        height 100%
+        padding 20px 40px
+        display flex
+        align-items center
+        background-color rgba(black, 0.4)
+        a
+            display block
+            color white
+            font-size 18px
+            padding 5px 0
+            
+.index-slider-arrows
+    position absolute
+    z-index: 20
+    right 10px
+    bottom -10px
+    font-size 0
+    button
+        width 40px
+        border none
+        height 40px
+        background white url(../img/right-arrow.svg) no-repeat center center
+        background-size 15px
+        &.prev
+            margin-right 10px
+            transform rotate(180deg)

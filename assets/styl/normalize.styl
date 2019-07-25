@@ -1,0 +1,207 @@
+
+@import "animations"
+
+*
+	margin 0
+	padding 0
+	list-style-type none
+	outline none
+	font-family bpg_arial_caps
+	
+@font-face{
+    font-family bpg_arial_caps
+    src url(../fonts/bpg-arial-caps-webfont.woff)
+}
+@font-face{
+    font-family bpg_arial
+    src url(../fonts/bpg-ingiri-arial-webfont.woff)
+}
+@font-face{
+    font-family bpg_web_caps
+    src url(../fonts/bpg-web-001-caps-webfont.woff)
+}
+body
+    display flex
+    min-height 100vh
+    flex-direction column
+    overflow-x hidden
+body::-webkit-scrollbar
+    width 0
+    background white
+    border-radius 5px
+body::-webkit-scrollbar-thumb
+    width 4px
+    border-radius 5px
+    background rgba(blue, 0.4)
+
+main
+    flex 1 0 auto
+    background white
+    z-index 1
+    left 0
+    transition 0.8s ease
+
+
+body
+	&.scroll-disable
+		height 100vh
+		overflow hidden
+nav
+	background transparent
+	box-shadow none
+	width auto
+	li
+		&:hover 
+			a
+				background transparent
+	ul
+		li.active
+			background transparent
+		a
+			padding 0	
+			line-height 20px
+
+.container{
+	max-width 1240px
+	padding 0 20px
+	width calc(100% - 20px)
+	box-sizing border-box
+	+mq(1200px){
+		max-width 992px
+	}
+	+mq(992px){
+		max-width 800px
+	}
+	+mq(600px){
+		padding 0 10px
+	}
+}
+.clear{
+	clear both
+}
+button:focus{
+	background-color transparent
+}
+.eb-form input:not([type]), 
+.eb-form input[type=text]:not(.browser-default), 
+.eb-form input[type=password]:not(.browser-default), 
+.eb-form input[type=email]:not(.browser-default), 
+.eb-form input[type=url]:not(.browser-default), 
+.eb-form input[type=time]:not(.browser-default), 
+.eb-form input[type=date]:not(.browser-default), 
+.eb-form input[type=datetime]:not(.browser-default), 
+.eb-form input[type=datetime-local]:not(.browser-default), 
+.eb-form input[type=tel]:not(.browser-default), 
+.eb-form input[type=number]:not(.browser-default), 
+.eb-form input[type=search]:not(.browser-default), 
+.eb-form textarea.materialize-textarea{
+	border 1px solid #e3e7f1
+	padding 26px 28px 24px
+	box-sizing border-box
+	text-transform uppercase
+}
+.eb-form textarea.materialize-textarea{
+	height 100px
+}
+.eb-form .input-field label:not(.label-icon).active{
+	transform translateY(-9px) scale(0.8)
+}
+.eb-form .input-field label{
+	height 20px
+	background white
+	padding-left 10px
+	padding-right 10px
+	font-family bpg_arial
+	z-index 1
+	transform translateY(16px)
+	margin-left 20px
+}
+.eb-form .file-field .file-path-wrapper{
+	padding-left 0
+}
+.eb-form .file-field .btn, .file-field .btn-large{
+	box-shadow none
+	border-radius 0
+	height 52px
+	background #c8d0ff
+}
+.eb-form .file-field{
+	span{
+		font-family bpg_arial
+		color blue
+		font-size 14px
+	} 
+	img{
+		width 26px
+		margin-right 10px
+		margin-top: 15px;
+    	margin-bottom: -8px;
+	}
+}
+.eb-form input:not([type]):focus:not([readonly]), 
+.eb-form input[type=text]:not(.browser-default):focus:not([readonly]), 
+.eb-form input[type=password]:not(.browser-default):focus:not([readonly]), 
+.eb-form input[type=email]:not(.browser-default):focus:not([readonly]), 
+.eb-form input[type=url]:not(.browser-default):focus:not([readonly]), 
+.eb-form input[type=time]:not(.browser-default):focus:not([readonly]), 
+.eb-form input[type=date]:not(.browser-default):focus:not([readonly]), 
+.eb-form input[type=datetime]:not(.browser-default):focus:not([readonly]), 
+.eb-form input[type=datetime-local]:not(.browser-default):focus:not([readonly]), 
+.eb-form input[type=tel]:not(.browser-default):focus:not([readonly]), 
+.eb-form input[type=number]:not(.browser-default):focus:not([readonly]), 
+.eb-form input[type=search]:not(.browser-default):focus:not([readonly]), 
+.eb-form textarea.materialize-textarea:focus:not([readonly]){
+    border-bottom: 1px solid #e3e7f1;
+    -webkit-box-shadow: 0 1px 0 0 transparent;
+    box-shadow: 0 1px 0 0 transparent;
+}
+input.valid:not([type]), 
+input.valid:not([type]):focus, 
+input[type=text].valid:not(.browser-default), 
+input[type=text].valid:not(.browser-default):focus, 
+input[type=password].valid:not(.browser-default), 
+input[type=password].valid:not(.browser-default):focus, 
+input[type=email].valid:not(.browser-default), 
+input[type=email].valid:not(.browser-default):focus, 
+input[type=url].valid:not(.browser-default), 
+input[type=url].valid:not(.browser-default):focus, 
+input[type=time].valid:not(.browser-default), 
+input[type=time].valid:not(.browser-default):focus, 
+input[type=date].valid:not(.browser-default), 
+input[type=date].valid:not(.browser-default):focus, 
+input[type=datetime].valid:not(.browser-default), 
+input[type=datetime].valid:not(.browser-default):focus, 
+input[type=datetime-local].valid:not(.browser-default), 
+input[type=datetime-local].valid:not(.browser-default):focus, 
+input[type=tel].valid:not(.browser-default), 
+input[type=tel].valid:not(.browser-default):focus, 
+input[type=number].valid:not(.browser-default), 
+input[type=number].valid:not(.browser-default):focus, 
+input[type=search].valid:not(.browser-default), 
+input[type=search].valid:not(.browser-default):focus, 
+textarea.materialize-textarea.valid, 
+textarea.materialize-textarea.valid:focus, 
+.select-wrapper.valid>input.select-dropdown{
+	border-bottom: 1px solid #e3e7f1;
+	-webkit-box-shadow: 0 1px 0 0 transparent; 
+	box-shadow: 0 1px 0 0 transparent; 
+}
+
+.select-wrapper input.select-dropdown,
+input:not([type]), 
+.owl-theme .owl-nav
+	margin-top 0
+.row,
+.container .row
+	margin 0 -17px
+.row .col
+	padding 0 17px
+.input-field
+	margin-top 0
+.dropdown-content li>a, .dropdown-content li>span
+	color #707070
+	font-weight normal
+
+// [data-aos=fade-down] {
+//     transform: translate3d(0,-10px,0);
+// }
