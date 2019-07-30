@@ -1,21 +1,38 @@
 @import "variables"
 @import "mixins"
 
-@keyframes scroll
-  	0% 
-  		transform translateY(0)
-  	50% 
-  		transform translateY(-10px)
-  	100%
-  		transform translateY(0)
-@keyframes enterHeight
-  	0% 
-  		height 0
-  	100%
-  		height calc(100% - 40px)
-@keyframes enterWidth
-  	0% 
-  		width 0
-  	100%
-  		width calc(100% - 40px)
-  		
+
+@keyframes lineWidth {
+  0% {
+    width: 0;
+  }
+  90% {
+    width: 100%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes sliderFade {
+  0% {
+    width 0%
+    right 0
+  }
+  8% {
+    right 0
+    width: 100%;
+  }
+  16%{
+    right 100%
+    width 200%
+  }
+  24%{
+    right 100%
+    width 200%
+  }
+  32% {
+    right 100%
+    width 0%
+  }
+}
