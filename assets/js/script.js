@@ -1,5 +1,9 @@
 $(document).ready(function(){
 
+  setTimeout(function(){
+    $('.loader-block').removeClass('active');
+  }, 4000);
+
 	AOS.init({
     once: true
   })
